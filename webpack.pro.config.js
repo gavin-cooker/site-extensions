@@ -21,23 +21,23 @@ const proconfig = {
     optimization: {  // 优化配置项  实现前提是 ES Modules-------------需修改babel-loader---------
     //     concatenateModules: true,    // 尽可能合并每一个模块到一个函数中  减少体积和运行效率
         minimizer: [   //  把未引用的块剔除掉     压缩
-        new TerserWebpackPlugin({//--------------详细配置----------https://github.com/terser/terser
-            extractComments: false,      //  不生成LICENSE文件(提取注释)
-            // minify: TerserWebpackPlugin.uglifyJsMinify,   //集 JavaScript 解析器，压缩器，美化器于一身
-            terserOptions: {
-                // minify: {
+        // new TerserWebpackPlugin({//--------------详细配置----------https://github.com/terser/terser
+        //     extractComments: false,      //  不生成LICENSE文件(提取注释)
+        //     // minify: TerserWebpackPlugin.uglifyJsMinify,   //集 JavaScript 解析器，压缩器，美化器于一身
+        //     terserOptions: {
+        //         // minify: {
 
-                // },
-                format: {
-                  comments: false,//删除所有注释
-                //   ecma: 6,   //期待输出的es版本
+        //         // },
+        //         format: {
+        //           comments: false,//删除所有注释
+        //         //   ecma: 6,   //期待输出的es版本
 
-                },
-                compress: {
-                  drop_console: true, // 移除所有console.log
-                },
-              },
-        }),
+        //         },
+        //         compress: {
+        //           drop_console: true, // 移除所有console.log
+        //         },
+        //       },
+        // }),
         ]     
     },
     //------此处定义可以结合merge整合,避免相同键覆写-------

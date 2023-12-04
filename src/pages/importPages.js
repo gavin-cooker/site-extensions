@@ -32,9 +32,17 @@ const platformArr = importAll(require.context('./', true, /\index.vue$/))
 // console.log("🚀 ~ file: importPages.js:22 ~ platformArr:", platformArr)
 
 const componentsAll = {};
+/**
+ * exp: 
+ *    ('./bilibili/index.vue').match(/\/([a-zA-Z]+)\//) 
+ *    =>
+ *     ['/bilibili/', 'bilibili', index: 1, input: './bilibili/index.vue', groups: undefined]
+ */
+const ENTRY_FILE_NAME_REG = /\/([a-zA-Z]+)\// 
 for (const key in platformArr) {
   const element = platformArr[key].default
-  componentsAll[element.__file.match(/(?<=pages\/).*(?=\/)/)[0]] = element;
+  const entryFileName = key.match(ENTRY_FILE_NAME_REG)?.[1]
+  componentsAll[entryFileName] = element;
 }
 
 export default componentsAll

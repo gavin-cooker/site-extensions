@@ -23,7 +23,7 @@ const comconfig = {
         filename: (pathData) => {
             return pathData.chunk.name === 'background' ? './[name].js' : './js/[name].js';
           },
-        path: path.resolve(__dirname, 'xzz2022'),
+        path: path.resolve(__dirname, 'dist'),
     },
     performance: {
         hints: false,
